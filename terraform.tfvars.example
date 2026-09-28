@@ -1,0 +1,28 @@
+# Copy to terraform.tfvars and adjust. Keep the API token out of this file:
+#   export TF_VAR_proxmox_api_token='terraform@pve!tf=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+proxmox_endpoint = "https://pve1.example.local:8006/"
+proxmox_insecure = true
+
+nodes          = ["pve1", "pve2", "pve3"]
+template_node  = "pve1"
+template_vm_id = 9000
+datastore_id   = "ceph-vm"
+
+vm_count       = 10
+vm_name_prefix = "win11"
+vm_id_start    = 2001
+
+cpu_cores    = 4
+cpu_type     = "host"
+memory_mb    = 8192
+disk_size_gb = 80
+
+network_bridge = "vmbr0"
+# vlan_id      = 20
+
+# Optional: only if cloudbase-init is installed in the template
+# enable_cloudinit = true
+# ipv4_addresses   = ["10.0.20.101/24", "10.0.20.102/24"]  # rest fall back to DHCP
+# ipv4_gateway     = "10.0.20.1"
+# dns_servers      = ["10.0.0.10", "10.0.0.11"]
